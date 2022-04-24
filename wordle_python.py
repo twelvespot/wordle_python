@@ -9,12 +9,17 @@ poss_2 = pd.DataFrame({
 guesses = ['first', 'second', 'third', 'fourth', 'fifth', 'last']
 for i in guesses:
     print('What\'s your ' + i + ' guess?')
+    print('Type \'end\' to quit')
+
     word = input()
-    print('''
-    What was the feedback?
-    Place (b) or (y) or (g) for letters in their 
-    correct place.
-    ''')
+    if word == 'end':
+        break
+    else:
+        print('''
+        What was the feedback?
+        Place (b) or (y) or (g) for letters in their 
+        correct place.
+        ''')
     feedback = input() #bgybb
     #Write for loop such that it looks at both letter placement of the b g y and uses an embedded if statement
     #to evaluate what to do with the b g y by position in the feedback and references the index back to the 
@@ -36,10 +41,8 @@ for i in guesses:
             poss_2 = poss_2[mask]
         
     print('''
-    Here are some remaining choices.
-    In case you need some help, Granny.
+    Here are some remaining choices
+    in case you need some help, Granny.
     ''')
     print(poss_2.head())
 
-# mask = poss_2['words'].str[i].str.contains(word_letter)
-#     poss_2 = poss_2[mask].head()
